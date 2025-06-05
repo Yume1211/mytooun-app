@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>トゥンの生理管理アプリ</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/airbnb.css">
+</head>
+<body>
+  <h1>Mason de toun</h1>
+
+  <div id="toontalk">
+    <img src="toontun.png" alt="トゥン">
+    <span id="talkText">トゥン「元気トゥン〜！」</span>
+  </div>
+
+  <img id="toonImage" src="toontun.png" alt="トゥン" class="main-toon">
+
+  <div>
+    <button onclick="showScreen('calendar')">カレンダー</button>
+    <button onclick="showScreen('fortune')">占い</button>
+    <button onclick="showScreen('settings')">設定</button>
+    <button onclick="openFoodMenu()">アイテム（食べ物）</button>
+  </div>
+
+  <div id="foodMenu" class="hidden">
+    <p>何を食べさせるトゥン？</p>
+    <button onclick="feedToon('cake')">🍰 ケーキ</button>
+    <button onclick="feedToon('carrot')">🥕 にんじん</button>
+    <button onclick="feedToon('apple')">🍎 りんご</button>
+    <br><br>
+    <button onclick="closeFoodMenu()">閉じる</button>
+  </div>
+
+  <div id="calendar-screen" class="hidden">
+    <button onclick="showScreen('top')">← 戻る</button>
+    <div id="moodSelector">
+      <label for="mood">今日の体調トゥン：</label>
+      <select id="mood">
+        <option value="元気">元気トゥン！</option>
+        <option value="お腹痛い">お腹痛いトゥン…</option>
+        <option value="泣き虫">泣き虫トゥン（涙）</option>
+        <option value="眠い">眠いトゥン…Zzz</option>
+        <option value="布団">布団トゥン…</option>
+      </select>
+      <button onclick="changeMood()">変更トゥン！</button>
+    </div>
+    <div id="calendar"></div>
+  </div>
+
+  <div id="fortune-screen" class="hidden">
+    <button onclick="showScreen('top')">← 戻る</button>
+    <p id="fortune-result">誕生日を入力して占いするトゥン〜！</p>
+    <input type="number" id="birthMonth" placeholder="月 (例:6)">
+    <input type="number" id="birthDay" placeholder="日 (例:10)">
+    <button onclick="showZodiac()">占うトゥン！</button>
+  </div>
+
+  <div id="settings-screen" class="hidden">
+    <button onclick="showScreen('top')">← 戻る</button>
+    <p>誕生日:</p>
+    <input type="number" id="setBirthMonth" placeholder="月">
+    <input type="number" id="setBirthDay" placeholder="日">
+    <p>生理開始日:</p>
+    <input type="date" id="startDate">
+    <p>生理周期（日数）:</p>
+    <input type="number" id="cycleLength" value="28">
+    <button onclick="saveSettings()">保存トゥン！</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="script.js"></script>
+</body>
+</html>

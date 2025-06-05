@@ -1,0 +1,78 @@
+body {
+  background: url("toontun_room.png") center/cover no-repeat;
+  font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  text-align: center;
+  margin: 20px;
+}
+h1 {
+  color: #ff69b4;
+  font-size: 2.5em;
+  text-shadow: 1px 1px 2px #ffc0cb;
+}
+#toontalk {
+  background: #fff0f5;
+  border: 2px solid #ff99aa;
+  border-radius: 15px;
+  padding: 10px;
+  width: fit-content;
+  margin: 10px auto;
+  position: relative;
+  font-size: 1.2em;
+  color: #ff69b4;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+#toontalk::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 40px;
+  border: 10px solid transparent;
+  border-top-color: #ff99aa;
+}
+#toontalk img {
+  margin-right: 10px;
+  width: 50px;
+}
+#toonImage {
+  display: block;
+  margin: 20px auto;
+  width: 200px;
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+button {
+  background-color: #ffccd5;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 5px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #ff99aa;
+}
+.hidden {
+  display: none;
+}
+#calendar {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ffccd5;
+  padding: 20px;
+}
+select, input {
+  padding: 8px;
+  margin: 5px;
+  border-radius: 8px;
+  border: 2px solid #ff99aa;
+}
