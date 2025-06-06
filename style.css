@@ -1,4 +1,3 @@
-/* 画面全体設定 */
 html, body {
   margin: 0;
   padding: 0;
@@ -11,14 +10,13 @@ html, body {
   background-color: #fff0f5;
 }
 
-/* トゥンのお部屋全体 */
 #room-container {
   position: relative;
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
   min-height: 100vh;
-  background: url('toontun_room.png') center/cover no-repeat;
+  background: url('toontun_room.png') top center/contain no-repeat;
   border-radius: 15px;
   box-shadow: 0 0 15px #ffccd5;
   padding-bottom: 20px;
@@ -27,7 +25,6 @@ html, body {
   align-items: center;
 }
 
-/* メインコンテンツ */
 #main-content {
   width: 90%;
   max-width: 350px;
@@ -35,11 +32,12 @@ html, body {
   padding: 15px;
   box-sizing: border-box;
   text-align: center;
-  background: rgba(255, 240, 245, 0.8);
+  background: #fff0f5;
   border-radius: 15px;
+  position: relative;
+  z-index: 1;
 }
 
-/* タイトル */
 h1 {
   color: #ff69b4;
   font-size: 2em;
@@ -47,7 +45,6 @@ h1 {
   margin: 10px 0;
 }
 
-/* トゥントーク */
 #toontalk {
   background: #fff0f5cc;
   border: 2px solid #ff99aa;
@@ -69,7 +66,6 @@ h1 {
   width: 40px;
 }
 
-/* トゥンの画像 */
 #toonImage {
   width: 120px;
   margin: 10px auto;
@@ -82,7 +78,6 @@ h1 {
   100% { transform: translateY(0px); }
 }
 
-/* ボタンたち */
 .button-group {
   display: flex;
   flex-wrap: wrap;
@@ -108,7 +103,6 @@ h1 {
   transform: translateY(3px);
 }
 
-/* メニュー画面 */
 #foodMenu, #calendar-screen, #fortune-screen, #settings-screen {
   background: #fff0f5cc;
   border: 2px solid #ff99aa;
@@ -120,7 +114,6 @@ h1 {
   box-shadow: 0 0 8px #ffccd5;
 }
 
-/* 入力欄 */
 input, select {
   width: 80%;
   padding: 8px;
@@ -131,8 +124,8 @@ input, select {
   font-size: 1em;
 }
 
-/* 隠し要素 */
 .hidden {
   display: none;
 }
+
 
