@@ -1,109 +1,112 @@
 body {
-  background: url("toontun_room.png") center/cover no-repeat;
+  background: #fff0f5; /* 全体背景を淡いピンク */
   font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
   text-align: center;
-  margin: 20px;
+  margin: 0;
+  padding: 20px 10px;
 }
+
 h1 {
   color: #ff69b4;
-  font-size: 2.5em;
+  font-size: 2.2em;
   text-shadow: 1px 1px 2px #ffc0cb;
+  margin: 10px 0;
 }
+
+button {
+  background: linear-gradient(to bottom, #ff99aa, #ffccd5);
+  border: 2px solid #ff99aa;
+  border-radius: 20px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 3px #d97d9c;
+  transition: all 0.2s;
+}
+
+button:active {
+  box-shadow: none;
+  transform: translateY(3px);
+}
+
 #toontalk {
   background: #fff0f5;
   border: 2px solid #ff99aa;
-  border-radius: 15px;
+  border-radius: 20px;
   padding: 10px;
-  width: fit-content;
-  margin: 10px auto;
-  position: relative;
+  margin: 15px auto;
   font-size: 1.2em;
   color: #ff69b4;
   font-weight: bold;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  width: 90%;
+  box-shadow: 0 0 8px #ffccd5;
 }
-#toontalk::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 40px;
-  border: 10px solid transparent;
-  border-top-color: #ff99aa;
-}
+
 #toontalk img {
-  margin-right: 10px;
-  width: 50px;
+  width: 60px;
+  margin-bottom: 5px;
 }
+
 #toonImage {
-  display: block;
+  width: 70%;
+  max-width: 250px;
   margin: 20px auto;
-  width: 200px;
+  display: block;
   animation: float 3s ease-in-out infinite;
 }
+
 @keyframes float {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-8px); }
   100% { transform: translateY(0px); }
 }
-button {
-  background-color: #ffccd5;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 20px;
-  margin: 5px;
-  font-weight: bold;
-  color: #fff;
-  cursor: pointer;
-}
-button:hover {
-  background-color: #ff99aa;
-}
-.hidden {
-  display: none;
-}
+
 #calendar {
-  max-width: 800px;
-  margin: 20px auto;
-  background-color: #fff;
-  border-radius: 10px;
+  background: #fff;
+  border-radius: 20px;
   box-shadow: 0 0 10px #ffccd5;
-  padding: 20px;
+  padding: 15px;
+  width: 95%;
+  margin: 20px auto;
 }
+
 select, input {
-  padding: 8px;
-  margin: 5px;
-  border-radius: 8px;
+  width: 90%;
+  padding: 10px;
+  margin: 8px auto;
   border: 2px solid #ff99aa;
-  /* スマホ用スタイル */
+  border-radius: 10px;
+  font-size: 1em;
+  display: block;
+}
+
+/* スマホ専用調整 */
 @media screen and (max-width: 600px) {
-  body {
-    font-size: 14px; /* 全体の文字サイズを少し小さく */
-    padding: 10px; /* 余白をコンパクトに */
-  }
-
   h1 {
-    font-size: 20px; /* 見出しも縮める */
-    text-align: center; /* 見出しを中央に寄せる */
-  }
-
-  .main-toon {
-    width: 80%; /* トゥンの画像を画面幅の80%に */
-    height: auto;
-    display: block;
-    margin: 0 auto 20px auto; /* 上下の余白調整 */
+    font-size: 1.8em;
   }
 
   button {
-    display: block;
-    width: 100%; /* ボタンを幅いっぱいに */
-    margin: 10px 0; /* ボタンの上下に余白 */
-    font-size: 16px; /* 押しやすいサイズに */
+    font-size: 1.2em;
+    width: 95%;
   }
 
-  #foodMenu {
-    text-align: center; /* 食べ物メニューを中央揃え */
+  #toontalk {
+    font-size: 1em;
+    width: 95%;
   }
-}
 
+  #toonImage {
+    width: 80%;
+  }
+
+  select, input {
+    width: 95%;
+  }
 }
