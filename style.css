@@ -21,15 +21,22 @@ html, body {
   background: url('toontun_room.png') center/cover no-repeat;
   border-radius: 15px;
   box-shadow: 0 0 15px #ffccd5;
-  padding-bottom: 20px;  /* 下に余白を入れる */
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* メインコンテンツ */
 #main-content {
-  width: 100%;
+  width: 90%;
+  max-width: 350px;
+  margin: 0 auto;
   padding: 15px;
   box-sizing: border-box;
   text-align: center;
+  background: rgba(255, 240, 245, 0.8);
+  border-radius: 15px;
 }
 
 /* タイトル */
