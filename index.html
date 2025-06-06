@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>トゥンの生理管理アプリ</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="style.css">
   <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
 </head>
 <body>
   <div id="room-container">
-    <img src="toontun_room.png" id="room-background" alt="背景">
     <div id="main-content">
       <h1>Mason de toun</h1>
 
@@ -28,37 +27,11 @@
         <button onclick="openFoodMenu()">おやつあげる</button>
       </div>
 
-      <div id="foodMenu" class="hidden">
-        <p>トゥンにおやつあげるトゥン？</p>
-        <button onclick="feedToon()">🍰 おやつあげる！</button>
-        <br><br>
-        <button onclick="closeFoodMenu()">閉じる</button>
-      </div>
-
-      <div id="calendar-screen" class="hidden">
-        <button onclick="showScreen('top')">← 戻る</button>
-        <div id="calendar"></div>
-      </div>
-
-      <div id="fortune-screen" class="hidden">
-        <button onclick="showScreen('top')">← 戻る</button>
-        <p id="fortune-result">誕生日を入力して占いするトゥン〜！</p>
-        <input type="number" id="birthMonth" placeholder="月 (例:6)">
-        <input type="number" id="birthDay" placeholder="日 (例:10)">
-        <button onclick="showZodiac()">占うトゥン！</button>
-      </div>
-
-      <div id="settings-screen" class="hidden">
-        <button onclick="showScreen('top')">← 戻る</button>
-        <p>誕生日:</p>
-        <input type="number" id="setBirthMonth" placeholder="月">
-        <input type="number" id="setBirthDay" placeholder="日">
-        <p>生理開始日:</p>
-        <input type="date" id="startDate">
-        <p>生理周期（日数）:</p>
-        <input type="number" id="cycleLength" value="28">
-        <button onclick="saveSettings()">保存トゥン！</button>
-      </div>
+      <!-- ここに追加で各画面 -->
+      <div id="foodMenu" class="hidden">ごはんメニューここに入れる</div>
+      <div id="calendar-screen" class="hidden">カレンダーここに入れる</div>
+      <div id="fortune-screen" class="hidden">占いここに入れる</div>
+      <div id="settings-screen" class="hidden">設定ここに入れる</div>
     </div>
   </div>
 
