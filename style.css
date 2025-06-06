@@ -1,63 +1,66 @@
 body {
-  background: #fff0f5; /* 全体背景を淡いピンク */
-  font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
-  text-align: center;
   margin: 0;
-  padding: 20px 10px;
+  font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  background-color: #fff0f5;
+  overflow-x: hidden;
+}
+
+#room-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #ffccd5;
+}
+
+#room-background {
+  width: 100%;
+  display: block;
+}
+
+#main-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 h1 {
   color: #ff69b4;
-  font-size: 2.2em;
+  font-size: 2em;
   text-shadow: 1px 1px 2px #ffc0cb;
   margin: 10px 0;
 }
 
-button {
-  background: linear-gradient(to bottom, #ff99aa, #ffccd5);
-  border: 2px solid #ff99aa;
-  border-radius: 20px;
-  padding: 12px 20px;
-  margin: 8px 0;
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #fff;
-  cursor: pointer;
-  box-shadow: 0 3px #d97d9c;
-  transition: all 0.2s;
-}
-
-button:active {
-  box-shadow: none;
-  transform: translateY(3px);
-}
-
 #toontalk {
-  background: #fff0f5;
+  background: #fff0f5cc;
   border: 2px solid #ff99aa;
-  border-radius: 20px;
+  border-radius: 15px;
   padding: 10px;
-  margin: 15px auto;
+  margin: 10px auto;
   font-size: 1.2em;
   color: #ff69b4;
   font-weight: bold;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  width: 90%;
+  justify-content: center;
+  width: 80%;
   box-shadow: 0 0 8px #ffccd5;
 }
 
 #toontalk img {
-  width: 60px;
-  margin-bottom: 5px;
+  margin-right: 8px;
+  width: 40px;
 }
 
 #toonImage {
-  width: 70%;
-  max-width: 250px;
-  margin: 20px auto;
-  display: block;
+  width: 120px;
+  margin: 10px auto;
   animation: float 3s ease-in-out infinite;
 }
 
@@ -67,46 +70,53 @@ button:active {
   100% { transform: translateY(0px); }
 }
 
-#calendar {
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 0 10px #ffccd5;
-  padding: 15px;
-  width: 95%;
-  margin: 20px auto;
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-select, input {
-  width: 90%;
-  padding: 10px;
-  margin: 8px auto;
+.button-group button {
+  background: linear-gradient(to bottom, #ff99aa, #ffccd5);
   border: 2px solid #ff99aa;
-  border-radius: 10px;
+  border-radius: 20px;
+  padding: 8px 16px;
   font-size: 1em;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 3px #d97d9c;
+}
+
+.button-group button:active {
+  box-shadow: none;
+  transform: translateY(3px);
+}
+
+#foodMenu, #calendar-screen, #fortune-screen, #settings-screen {
+  background: #fff0f5cc;
+  border: 2px solid #ff99aa;
+  border-radius: 15px;
+  padding: 15px;
+  margin: 10px auto;
+  width: 90%;
+  max-width: 350px;
+  box-shadow: 0 0 8px #ffccd5;
+}
+
+input, select {
+  width: 80%;
+  padding: 8px;
+  margin: 5px auto;
+  border-radius: 10px;
+  border: 2px solid #ff99aa;
   display: block;
+  font-size: 1em;
 }
 
-/* スマホ専用調整 */
-@media screen and (max-width: 600px) {
-  h1 {
-    font-size: 1.8em;
-  }
-
-  button {
-    font-size: 1.2em;
-    width: 95%;
-  }
-
-  #toontalk {
-    font-size: 1em;
-    width: 95%;
-  }
-
-  #toonImage {
-    width: 80%;
-  }
-
-  select, input {
-    width: 95%;
-  }
+.hidden {
+  display: none;
 }
+
