@@ -3,6 +3,13 @@ const bgm = new Audio("background.mp3");
 bgm.loop = true;
 bgm.volume = 0.3;
 bgm.play();
+function startBGM() {
+  bgm.play().then(() => {
+    console.log("BGM再生スタート！");
+  }).catch(error => {
+    console.log("BGM再生失敗:", error);
+  });
+}
 
 // トゥン体調自動表示
 function updateToonMood() {
