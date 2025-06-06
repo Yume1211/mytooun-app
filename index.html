@@ -27,11 +27,51 @@
         <button onclick="openFoodMenu()">おやつあげる</button>
       </div>
 
-      <!-- ここに追加で各画面 -->
-      <div id="foodMenu" class="hidden">ごはんメニューここに入れる</div>
-      <div id="calendar-screen" class="hidden">カレンダーここに入れる</div>
-      <div id="fortune-screen" class="hidden">占いここに入れる</div>
-      <div id="settings-screen" class="hidden">設定ここに入れる</div>
+      <!-- カレンダー画面 -->
+      <div id="calendar-screen" class="hidden">
+        <button onclick="showScreen('top')">← 戻る</button>
+        <div id="moodSelector">
+          <label for="mood">今日の体調トゥン：</label>
+          <select id="mood">
+            <option value="元気">元気トゥン！</option>
+            <option value="お腹痛い">お腹痛いトゥン…</option>
+            <option value="泣き虫">泣き虫トゥン（涙）</option>
+            <option value="眠い">眠いトゥン…Zzz</option>
+            <option value="布団">布団トゥン…</option>
+          </select>
+          <button onclick="changeMood()">変更トゥン！</button>
+        </div>
+        <div id="calendar"></div>
+      </div>
+
+      <!-- 占い画面 -->
+      <div id="fortune-screen" class="hidden">
+        <button onclick="showScreen('top')">← 戻る</button>
+        <p id="fortune-result">誕生日を入力して占いするトゥン〜！</p>
+        <input type="number" id="birthMonth" placeholder="月 (例:6)">
+        <input type="number" id="birthDay" placeholder="日 (例:10)">
+        <button onclick="showZodiac()">占うトゥン！</button>
+      </div>
+
+      <!-- おやつメニュー -->
+      <div id="foodMenu" class="hidden">
+        <p>何を食べさせるトゥン？</p>
+        <button onclick="feedToon('おやつ')">おやつあげるトゥン！</button>
+        <button onclick="closeFoodMenu()">閉じる</button>
+      </div>
+
+      <!-- 設定画面 -->
+      <div id="settings-screen" class="hidden">
+        <button onclick="showScreen('top')">← 戻る</button>
+        <p>誕生日:</p>
+        <input type="number" id="setBirthMonth" placeholder="月">
+        <input type="number" id="setBirthDay" placeholder="日">
+        <p>生理開始日:</p>
+        <input type="date" id="startDate">
+        <p>生理周期（日数）:</p>
+        <input type="number" id="cycleLength" value="28">
+        <button onclick="saveSettings()">保存トゥン！</button>
+      </div>
     </div>
   </div>
 
@@ -39,3 +79,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
