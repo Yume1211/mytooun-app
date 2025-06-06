@@ -2,12 +2,11 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
   overflow-x: hidden;
-  overflow-y: auto;
   box-sizing: border-box;
   font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
-  background-color: #fff0f5;
+  background: transparent;
 }
 
 #room-container {
@@ -15,27 +14,25 @@ html, body {
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
-  min-height: 100vh;
-  background: url('toontun_room.png') top center/contain no-repeat;
-  border-radius: 15px;
-  box-shadow: 0 0 15px #ffccd5;
-  padding-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 100%;
+}
+
+#room-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
 }
 
 #main-content {
-  width: 90%;
-  max-width: 350px;
-  margin: 0 auto;
-  padding: 15px;
-  box-sizing: border-box;
-  text-align: center;
-  background: #fff0f5;
-  border-radius: 15px;
   position: relative;
   z-index: 1;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: transparent; /* 透明で背景が見える */
 }
 
 h1 {
@@ -46,7 +43,7 @@ h1 {
 }
 
 #toontalk {
-  background: #fff0f5cc;
+  background: rgba(255, 240, 245, 0.8);
   border: 2px solid #ff99aa;
   border-radius: 15px;
   padding: 10px;
@@ -58,7 +55,6 @@ h1 {
   align-items: center;
   justify-content: center;
   width: 80%;
-  box-shadow: 0 0 8px #ffccd5;
 }
 
 #toontalk img {
@@ -95,23 +91,16 @@ h1 {
   font-weight: bold;
   color: #fff;
   cursor: pointer;
-  box-shadow: 0 3px #d97d9c;
-}
-
-.button-group button:active {
-  box-shadow: none;
-  transform: translateY(3px);
 }
 
 #foodMenu, #calendar-screen, #fortune-screen, #settings-screen {
-  background: #fff0f5cc;
+  background: rgba(255, 240, 245, 0.8);
   border: 2px solid #ff99aa;
   border-radius: 15px;
   padding: 15px;
   margin: 10px auto;
   width: 90%;
   max-width: 350px;
-  box-shadow: 0 0 8px #ffccd5;
 }
 
 input, select {
@@ -129,3 +118,7 @@ input, select {
 }
 
 
+
+
+
+  
