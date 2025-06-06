@@ -22,10 +22,11 @@ html, body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; /* ← 高さを画面いっぱいにする */
-  object-fit: cover; /* ← 画面に合わせて背景をフィット */
+  height: 100%;       /* ← 高さを必ず指定！ */
+  object-fit: cover;  /* ← 画面にフィットさせる */
   z-index: -1;
 }
+
 
 #main-content {
   position: relative;
