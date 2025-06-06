@@ -15,6 +15,7 @@ html, body {
   max-width: 400px;
   margin: 0 auto;
   height: 100%;
+  background: url('toontun_room.png') center center/cover no-repeat;
 }
 
 #room-background {
