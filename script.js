@@ -114,24 +114,34 @@ function togglePeriodEditMode() {
   renderCalendar();
 }
 
-// カレンダー
 function renderCalendar() {
   const storedPeriodDates = JSON.parse(localStorage.getItem('periodDates')) || [];
   const startDateStr = localStorage.getItem('startDate');
   const cycleLength = parseInt(localStorage.getItem('cycleLength')) || 28;
   const periodLength = 5;
+
   const events = [];
 
+  // 生理日
   storedPeriodDates.forEach(dateStr => {
-    events.push({ title: '🍓 生理日', start: dateStr, color: '#ff99bb' });
+    events.push({
+      title: '🍓 生理日',
+      start: dateStr,
+      color: '#ff99bb'
+    });
   });
 
+  // 排卵日（自動計算）
   if (startDateStr) {
     let periodDate = new Date(startDateStr);
     for (let i = 0; i < 12; i++) {
       const ovulation = new Date(periodDate);
       ovulation.setDate(periodDate.getDate() + 14);
-      events.push({ title: '🥚 排卵日', start: ovulation.toISOString().split('T')[0], color: '#ffd966' });
+      events.push({
+        title: '🥚 排卵日',
+        start: ovulation.toISOString().split('T')[0],
+        color: '#ffd966'
+      });
       periodDate.setDate(periodDate.getDate() + cycleLength);
     }
   }
@@ -142,7 +152,7 @@ function renderCalendar() {
     initialView: 'dayGridMonth',
     locale: 'ja',
     dateClick: function(info) {
-      if (isPeriodEditMode) togglePeriodDate(info.dateStr);
+      togglePeriodDate(info.dateStr);
     },
     events: events
   });
@@ -159,8 +169,11 @@ function togglePeriodDate(dateStr) {
     alert(dateStr + " を生理日に登録したトゥン！");
   }
   localStorage.setItem('periodDates', JSON.stringify(periodDates));
+
+  // 🟢 ココ！ カレンダーを再描画して反映させる
   renderCalendar();
 }
+
 
 
 // 占い
