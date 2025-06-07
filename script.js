@@ -162,6 +162,7 @@ function togglePeriodDate(dateStr) {
   renderCalendar();
 }
 
+
 // 占い
 function showZodiac() {
   const month = parseInt(document.getElementById("birthMonth").value);
