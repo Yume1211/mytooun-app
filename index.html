@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>トゥンの生理管理アプリ</title>
+  <title>Mason de toun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="style.css">
   <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
@@ -10,44 +10,30 @@
 <body>
   <div id="room-container">
     <img id="room-background" src="toontun_room.png" alt="背景">
-
     <div id="main-content">
-      <!-- トップのボタン -->
       <div class="button-group">
-        <button onclick="startBGM()">トゥンの部屋で音楽を聴く♪</button>
+        <button onclick="startBGM()">トゥンのお部屋で音楽を聴く♪</button>
         <button onclick="showScreen('calendar')">カレンダー</button>
         <button onclick="showScreen('fortune')">占い</button>
         <button onclick="showScreen('settings')">設定</button>
         <button onclick="openFoodMenu()">おやつあげる</button>
       </div>
 
-      <!-- トゥンのセリフ -->
       <div id="toontalk">
         <img src="toontun.png" alt="トゥン">
         <span id="talkText">トゥン「元気トゥン〜！」</span>
       </div>
 
-      <!-- トゥンのイラスト -->
       <img id="toonImage" src="toontun.png" alt="トゥン">
 
-      <!-- カレンダー -->
+      <!-- カレンダー画面 -->
       <div id="calendar-screen" class="hidden">
         <button onclick="showScreen('top')">← 戻る</button>
-        <div id="moodSelector">
-          <label for="mood">今日の体調トゥン：</label>
-          <select id="mood">
-            <option value="元気">元気トゥン！</option>
-            <option value="お腹痛い">お腹痛いトゥン…</option>
-            <option value="イライラ">泣き虫トゥン（涙）</option>
-            <option value="眠い">眠いトゥン…Zzz</option>
-            <option value="布団">布団トゥン…</option>
-          </select>
-          <button onclick="changeMood()">変更トゥン！</button>
-        </div>
         <div id="calendar"></div>
+        <button id="editPeriodButton" onclick="togglePeriodEditMode()">生理日を記録・編集</button>
       </div>
 
-      <!-- 占い -->
+      <!-- 占い画面 -->
       <div id="fortune-screen" class="hidden">
         <button onclick="showScreen('top')">← 戻る</button>
         <p id="fortune-result">誕生日を入力して占いするトゥン〜！</p>
@@ -63,7 +49,7 @@
         <button onclick="closeFoodMenu()">閉じる</button>
       </div>
 
-      <!-- 設定 -->
+      <!-- 設定画面 -->
       <div id="settings-screen" class="hidden">
         <button onclick="showScreen('top')">← 戻る</button>
         <p>生理開始日:</p>
