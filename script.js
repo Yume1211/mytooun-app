@@ -144,6 +144,28 @@ function renderCalendar() {
       });
       periodDate.setDate(periodDate.getDate() + cycleLength);
     }
+    // 🔴 予定日の自動計算（未登録分）
+if (startDateStr) {
+  let periodDate = new Date(startDateStr);
+  const today = new Date();
+  while (periodDate < new Date(today.getFullYear(), today.getMonth() + 3, 1)) {
+    const periodStart = new Date(periodDate);
+    for (let i = 0; i < periodLength; i++) {
+      const periodDay = new Date(periodStart);
+      periodDay.setDate(periodStart.getDate() + i);
+      const dateStr = periodDay.toISOString().split('T')[0];
+      if (!storedPeriodDates.includes(dateStr)) {
+        events.push({
+          title: '🍓 予定日',
+          start: dateStr,
+          color: '#ffcccc'
+        });
+      }
+    }
+    periodDate.setDate(periodDate.getDate() + cycleLength);
+  }
+}
+
   }
 
   const calendarEl = document.getElementById('calendar');
