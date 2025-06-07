@@ -5,6 +5,7 @@ bgm.volume = 0.3;
 bgm.play();
 
 function startBGM() {
+  playSound("button.mp3");
   bgm.play().then(() => {
     console.log("BGM再生スタート！");
   }).catch(error => {
@@ -87,6 +88,7 @@ function playSound(soundFile) {
 
 // 画面切替
 function showScreen(screenId) {
+  playSound("button.mp3");
   document.getElementById('calendar-screen').classList.add('hidden');
   document.getElementById('fortune-screen').classList.add('hidden');
   document.getElementById('settings-screen').classList.add('hidden');
@@ -108,64 +110,61 @@ function showScreen(screenId) {
 // 生理日記録・編集ボタン
 let isPeriodEditMode = false;
 function togglePeriodEditMode() {
+  playSound("button.mp3");
   isPeriodEditMode = !isPeriodEditMode;
   const button = document.getElementById("editPeriodButton");
   button.innerText = isPeriodEditMode ? "編集モード終了" : "生理日を記録・編集";
   renderCalendar();
 }
 
+// カレンダー
 function renderCalendar() {
   const storedPeriodDates = JSON.parse(localStorage.getItem('periodDates')) || [];
   const startDateStr = localStorage.getItem('startDate');
   const cycleLength = parseInt(localStorage.getItem('cycleLength')) || 28;
   const periodLength = 5;
-
   const events = [];
 
-  // 生理日
   storedPeriodDates.forEach(dateStr => {
-    events.push({
-      title: '🍓 生理日',
-      start: dateStr,
-      color: '#ff99bb'
-    });
+    events.push({ title: '🍓 生理日', start: dateStr, color: '#ff99bb' });
   });
 
-  // 排卵日（自動計算）
+  // 排卵日（自動）
   if (startDateStr) {
     let periodDate = new Date(startDateStr);
-    for (let i = 0; i < 12; i++) {
-      const ovulation = new Date(periodDate);
-      ovulation.setDate(periodDate.getDate() + 14);
+    const today = new Date();
+    while (periodDate < new Date(today.getFullYear(), today.getMonth() + 3, 1)) {
+      const ovulationDate = new Date(periodDate);
+      ovulationDate.setDate(periodDate.getDate() + 14);
       events.push({
         title: '🥚 排卵日',
-        start: ovulation.toISOString().split('T')[0],
+        start: ovulationDate.toISOString().split('T')[0],
         color: '#ffd966'
       });
       periodDate.setDate(periodDate.getDate() + cycleLength);
     }
-    // 🔴 予定日の自動計算（未登録分）
-if (startDateStr) {
-  let periodDate = new Date(startDateStr);
-  const today = new Date();
-  while (periodDate < new Date(today.getFullYear(), today.getMonth() + 3, 1)) {
-    const periodStart = new Date(periodDate);
-    for (let i = 0; i < periodLength; i++) {
-      const periodDay = new Date(periodStart);
-      periodDay.setDate(periodStart.getDate() + i);
-      const dateStr = periodDay.toISOString().split('T')[0];
-      if (!storedPeriodDates.includes(dateStr)) {
-        events.push({
-          title: '🍓 予定日',
-          start: dateStr,
-          color: '#ffcccc'
-        });
-      }
-    }
-    periodDate.setDate(periodDate.getDate() + cycleLength);
   }
-}
 
+  // 予定日（未登録）
+  if (startDateStr) {
+    let periodDate = new Date(startDateStr);
+    const today = new Date();
+    while (periodDate < new Date(today.getFullYear(), today.getMonth() + 3, 1)) {
+      const periodStart = new Date(periodDate);
+      for (let i = 0; i < periodLength; i++) {
+        const periodDay = new Date(periodStart);
+        periodDay.setDate(periodStart.getDate() + i);
+        const dateStr = periodDay.toISOString().split('T')[0];
+        if (!storedPeriodDates.includes(dateStr)) {
+          events.push({
+            title: '🍓 予定日',
+            start: dateStr,
+            color: '#ffcccc'
+          });
+        }
+      }
+      periodDate.setDate(periodDate.getDate() + cycleLength);
+    }
   }
 
   const calendarEl = document.getElementById('calendar');
@@ -174,7 +173,7 @@ if (startDateStr) {
     initialView: 'dayGridMonth',
     locale: 'ja',
     dateClick: function(info) {
-      togglePeriodDate(info.dateStr);
+      if (isPeriodEditMode) togglePeriodDate(info.dateStr);
     },
     events: events
   });
@@ -191,15 +190,12 @@ function togglePeriodDate(dateStr) {
     alert(dateStr + " を生理日に登録したトゥン！");
   }
   localStorage.setItem('periodDates', JSON.stringify(periodDates));
-
-  // 🟢 ココ！ カレンダーを再描画して反映させる
   renderCalendar();
 }
 
-
-
 // 占い
 function showZodiac() {
+  playSound("button.mp3");
   const month = parseInt(document.getElementById("birthMonth").value);
   const day = parseInt(document.getElementById("birthDay").value);
   if (isNaN(month) || isNaN(day)) {
@@ -231,6 +227,7 @@ function getZodiac(month, day) {
 
 // 設定保存
 function saveSettings() {
+  playSound("button.mp3");
   localStorage.setItem('startDate', document.getElementById('startDate').value);
   localStorage.setItem('cycleLength', document.getElementById('cycleLength').value);
   alert('設定を保存したトゥン！');
@@ -238,8 +235,10 @@ function saveSettings() {
 
 // おやつ
 function openFoodMenu() {
+  playSound("button.mp3");
   document.getElementById('foodMenu').classList.remove('hidden');
 }
 function closeFoodMenu() {
+  playSound("button.mp3");
   document.getElementById('foodMenu').classList.add('hidden');
 }
