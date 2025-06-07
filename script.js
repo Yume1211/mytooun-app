@@ -2,7 +2,6 @@
 const bgm = new Audio("background.mp3");
 bgm.loop = true;
 bgm.volume = 0.3;
-bgm.play();
 
 function startBGM() {
   bgm.play().then(() => {
@@ -76,7 +75,6 @@ function getToonMood(today) {
 function feedToon() {
   playSound("button.mp3");
 
-  // メッセージ表示
   const messages = [
     "ケーキを食べたトゥン〜！甘くて幸せトゥン♪",
     "にんじん食べたトゥン〜！元気モリモリトゥン♪",
@@ -219,12 +217,7 @@ function showZodiac() {
 
 // 設定
 function saveSettings() {
-  localStorage.setItem('birthMonth', document.getElementById('setBirthMonth').value);
-  localStorage.setItem('birthDay', document.getElementById('setBirthDay').value);
   localStorage.setItem('startDate', document.getElementById('startDate').value);
   localStorage.setItem('cycleLength', document.getElementById('cycleLength').value);
   alert('設定を保存したトゥン！');
 }
-
-   
-
