@@ -4,9 +4,9 @@ html, body {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  box-sizing: border-box;
   font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
   background: transparent;
+  box-sizing: border-box;
 }
 
 #room-container {
@@ -35,6 +35,33 @@ html, body {
   background-color: transparent;
 }
 
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.button-group button,
+#editPeriodButton {
+  background: linear-gradient(to bottom, #ff99aa, #ffccd5);
+  border: 2px solid #ff99aa;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 3px #d97d9c;
+}
+
+.button-group button:active,
+#editPeriodButton:active {
+  box-shadow: none;
+  transform: translateY(3px);
+}
+
 #toontalk {
   background: rgba(255, 240, 245, 0.8);
   border: 2px solid #ff99aa;
@@ -56,9 +83,8 @@ html, body {
 }
 
 #toonImage {
-  width: 180px;
-  margin: 20px auto;
-  display: block;
+  width: 150px;
+  margin: 10px auto;
   animation: float 3s ease-in-out infinite;
 }
 
@@ -66,25 +92,6 @@ html, body {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-8px); }
   100% { transform: translateY(0px); }
-}
-
-.button-group {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.button-group button {
-  background: linear-gradient(to bottom, #ff99aa, #ffccd5);
-  border: 2px solid #ff99aa;
-  border-radius: 20px;
-  padding: 8px 16px;
-  font-size: 1em;
-  font-weight: bold;
-  color: #fff;
-  cursor: pointer;
 }
 
 #foodMenu, #calendar-screen, #fortune-screen, #settings-screen {
